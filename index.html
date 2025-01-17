@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="wadie-delivery-documentation-repository">Wadie delivery Documentation Repository</h1>
+<p>Repo contient tous les documents nécessaires pour notre application de livraison, organisés par catégorie. Voici la structure</p>
+<p><img src="Images/ui/wadie_00_org.png" alt="Banner"></p>
+<h2 id="structure-du-d%C3%A9p%C3%B4t">Structure du Dépôt</h2>
+<h3 id="1-legal--documents-l%C3%A9gaux">1. <a href="/legal">Legal</a> : Documents Légaux</h3>
+<ul>
+<li><strong><a href="/legal/statuts_societe.html">statuts_societe</a></strong> : Statuts de la Société.</li>
+<li><strong><a href="/legal/certificat_enregistrement.html">certificat_enregistrement</a></strong> : Certificat d'Enregistrement.</li>
+<li><strong><a href="/legal/identifiant_fiscal.html">identifiant_fiscal</a></strong> : Identifiant Fiscal.</li>
+<li><strong><a href="/legal/cgu.html">cgu</a></strong> : Conditions Générales d'Utilisation (CGU).</li>
+<li><strong><a href="/legal/politique_confidentialite.html">politique_confidentialite</a></strong> : Politique de Confidentialité.</li>
+<li><strong><a href="/legal/politique_cookies.html">politique_cookies</a></strong> : Politique de Cookies.</li>
+</ul>
+<h3 id="2-technical--documentation-technique">2. <a href="/technical">Technical</a> : Documentation Technique</h3>
+<ul>
+<li><strong><a href="/technical/cahier_charges.html">cahier_charges</a></strong> : Cahier des Charges.</li>
+<li><strong><a href="/technical/architecture_technique.html">architecture_technique</a></strong> : Architecture Technique.</li>
+<li><strong><a href="/technical/documentation_code.html">documentation_code</a></strong> : Documentation du Code.</li>
+<li><strong><a href="/technical/plan_test.html">plan_test</a></strong> : Plan de Test.</li>
+<li><strong><a href="/technical/manuel_technique.html">manuel_technique</a></strong> : Manuel d'Utilisation Technique.</li>
+<li><strong><a href="/technical/documentation_api.html">documentation_api</a></strong> : Documentation API.</li>
+<li><strong><a href="/technical/roadmap_technique.html">roadmap_technique</a></strong> : Feuille de Route Technique.</li>
+<li><strong><a href="/technical/stack_technologique.html">stack_technologique</a></strong> : Stack Technologique.</li>
+<li><strong><a href="/technical/flux_fonctionnels.html">flux_fonctionnels</a></strong> : Flux Fonctionnels (Diagrammes Mermaid).</li>
+<li><strong><a href="/technical/estimation_temps_couts.html">estimation_temps_couts</a></strong> : Estimation Temps et Coûts.</li>
+<li><strong><a href="/technical/diagrammes_explicatifs.html">diagrammes_explicatifs</a></strong> : Diagrammes Explicatifs (Diagrammes Mermaid).</li>
+</ul>
+<h3 id="3-marketing--strat%C3%A9gie-marketing">3. <a href="/marketing">Marketing</a> : Stratégie Marketing</h3>
+<ul>
+<li><strong><a href="/marketing/strategie_marketing.html">strategie_marketing</a></strong> : Stratégie Marketing.</li>
+<li><strong><a href="/marketing/plan_campagnes.html">plan_campagnes</a></strong> : Plan des Campagnes.</li>
+<li><strong><a href="/marketing/personas_utilisateurs.html">personas_utilisateurs</a></strong> : Personas Utilisateurs.</li>
+<li><strong><a href="/marketing/analyse_concurrence.html">analyse_concurrence</a></strong> : Analyse de la Concurrence.</li>
+<li><strong><a href="/marketing/budget_marketing.html">budget_marketing</a></strong> : Budget Marketing.</li>
+</ul>
+<h3 id="4-design--conception-et-identit%C3%A9-visuelle">4. <a href="/design">Design</a> : Conception et Identité Visuelle</h3>
+<ul>
+<li><strong><a href="/design/guide_ui_ux.html">guide_ui_ux</a></strong> : Guide UI/UX.</li>
+<li><strong><a href="/design/branding.html">branding</a></strong> : Branding et Identité Visuelle.</li>
+<li><strong><a href="/design/maquettes.html">maquettes</a></strong> : Maquettes de l'Application.</li>
+</ul>
+<h3 id="5-support--support-client">5. <a href="/support">Support</a> : Support Client</h3>
+<ul>
+<li><strong><a href="/support/guide_support.html">guide_support</a></strong> : Guide de Support Client.</li>
+<li><strong><a href="/support/faq.html">faq</a></strong> : Foire Aux Questions (FAQ).</li>
+<li><strong><a href="/support/scripts_support.html">scripts_support</a></strong> : Scripts de Support.</li>
+</ul>
+<h3 id="6-operations--gestion-op%C3%A9rationnelle">6. <a href="/operations">Operations</a> : Gestion Opérationnelle</h3>
+<ul>
+<li><strong><a href="/operations/sop.html">sop</a></strong> : Procédures Opérationnelles Standard (SOP).</li>
+<li><strong><a href="/operations/plan_maintenance.html">plan_maintenance</a></strong> : Plan de Maintenance.</li>
+<li><strong><a href="/operations/politique_securite.html">politique_securite</a></strong> : Politique de Sécurité.</li>
+<li><strong><a href="/operations/plan_reprise_activite.html">plan_reprise_activite</a></strong> : Plan de Reprise d'Activité.</li>
+</ul>
+<h3 id="7-partners--partenariats">7. <a href="/partners">Partners</a> : Partenariats</h3>
+<ul>
+<li><strong><a href="/partners/accords_integration.html">accords_integration</a></strong> : Accords d'Intégration.</li>
+<li><strong><a href="/partners/documentation_partenaires.html">documentation_partenaires</a></strong> : Documentation pour les Partenaires.</li>
+</ul>
+<h3 id="8-investors--documents-pour-les-investisseurs">8. <a href="/investors">Investors</a> : Documents pour les Investisseurs</h3>
+<ul>
+<li><strong><a href="/investors/pitch_deck.html">pitch_deck</a></strong> : Pitch Deck.</li>
+<li><strong><a href="/investors/tableau_capitaux.html">tableau_capitaux</a></strong> : Tableau des Capitaux.</li>
+<li><strong><a href="/investors/projections_financieres.html">projections_financieres</a></strong> : Projections Financières.</li>
+</ul>
+<h2 id="design-preview">Design Preview</h2>
+<p>Images aperçu d'un design possible pour Wadie Delivery (Sonic ???):</p>
+<h1 id="1-orange">1. Orange</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Acceuil</strong></th>
+<th style="text-align:center"><strong>Acceuil : Section Populaire</strong></th>
+<th style="text-align:center"><strong>Acceuil : Section Commandes en cours</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="Images/ui/wadie_01.png" alt="Home Screen"></td>
+<td style="text-align:center"><img src="Images/ui/wadie_03.png" alt="Order Tracking"></td>
+<td style="text-align:center"><img src="Images/ui/wadie_02.png" alt="Popular Stores"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="1-violet">1. Violet</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Acceuil</strong></th>
+<th style="text-align:center"><strong>Acceuil : Section Populaire</strong></th>
+<th style="text-align:center"><strong>Acceuil : Section Commandes en cours</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="Images/ui/wadie_01_ppl.png" alt="Home Screen"></td>
+<td style="text-align:center"><img src="Images/ui/wadie_03_ppl.png" alt="Order Tracking"></td>
+<td style="text-align:center"><img src="Images/ui/wadie_02_ppl.png" alt="Popular Stores"></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
